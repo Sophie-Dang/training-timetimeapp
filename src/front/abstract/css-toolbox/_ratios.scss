@@ -1,0 +1,36 @@
+@use '../../config/sass' as *;
+
+:root {
+  --block-ratio: 100%;
+}
+
+.ratio-block {
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    padding-top: var(--block-ratio);
+  }
+
+  &__content {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+.ratio-block--1\/1 {
+  --block-ratio: 100%;
+}
+
+.ratio-block--16\/9 {
+  --block-ratio: 56.25%;
+}
+
+.ratio-block--9\/16 {
+  --block-ratio: 177.77777778%;
+}

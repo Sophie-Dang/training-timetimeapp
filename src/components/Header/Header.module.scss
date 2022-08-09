@@ -1,0 +1,19 @@
+@use '/src/front/config/sass' as *;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  width: rem(180);
+  color: $font-default-color;
+  font-size: get-font-size(title);
+  font-weight: 600;
+  line-height: rem(34.13);
+}
+
+.menu {
+  display: none;
+}

@@ -1,0 +1,43 @@
+@use '/src/front/config/sass' as *;
+
+.toolnav {
+  --horizontal-padding: 30px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+
+  &_buttons {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: -36%;
+    right: 0;
+    padding: 0 var(--horizontal-padding);
+
+    button {
+      padding: 0 rem(7);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover,
+      &:focus {
+        transform: scale(1.10);
+      }
+    }
+  }
+
+  &_infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: rem(100);
+    padding: rem(15) var(--horizontal-padding);
+    border-top-left-radius: rem(50);
+    border-top-right-radius: rem(50);
+    background-color: get-color('gray-70');
+    color: get-color('gray-30');
+    font-size: get-font-size(xsmall);
+  }
+}

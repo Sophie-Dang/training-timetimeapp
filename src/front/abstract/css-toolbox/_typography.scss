@@ -1,0 +1,101 @@
+@use 'sass:math';
+@use '../../config/sass' as *;
+@use '../../abstract/grid-system/mixins' as *;
+
+.t-header {
+  font-family: get-font-stack('Inter');
+  font-weight: 700;
+
+  &-large {
+    @extend .t-header;
+
+    font-size: rem(40);
+    line-height: 135%;
+
+    @include up('large') {
+      font-size: rem(48);
+    }
+  }
+
+  &-medium {
+    @extend .t-header;
+
+    font-size: rem(30);
+    line-height: 120%;
+
+    @include up('large') {
+      font-size: rem(36);
+    }
+  }
+
+  &-small {
+    @extend .t-header;
+
+    font-size: rem(18);
+    line-height: 140%;
+
+    @include up('large') {
+      font-size: rem(24);
+    }
+  }
+}
+
+.t-base {
+  font-family: get-font-stack('Inter');
+  font-weight: 400;
+
+  &-large {
+    @extend .t-base;
+
+    font-size: rem(18);
+    line-height: 140%;
+  }
+
+  &-medium {
+    @extend .t-base;
+
+    font-size: rem(16);
+    line-height: 130%;
+  }
+
+  &-small {
+    @extend .t-base;
+
+    font-size: rem(14);
+    line-height: 140%;
+  }
+
+  &-xsmall {
+    @extend .t-base;
+
+    font-size: rem(12);
+    line-height: 140%;
+  }
+}
+
+.t-link-fx {
+  background: linear-gradient(to top, currentColor 1px, transparent 0) left no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.3s;
+
+  &:hover,
+  &:focus {
+    background-size: 100% 100%;
+  }
+}
+
+.t-link-fx-wrapper {
+  & > span:not([data-no-link-fx]) {
+    display: inline-block;
+    background: linear-gradient(to top, currentColor 1px, transparent 0) left no-repeat;
+    background-size: 0% 100%;
+    transition: background-size 0.3s;
+  }
+
+  &:hover,
+  &:focus {
+    & > span:not([data-no-link-fx]) {
+      background-size: 100% 100%;
+    }
+  }
+}

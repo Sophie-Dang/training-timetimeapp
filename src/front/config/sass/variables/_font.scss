@@ -1,0 +1,49 @@
+@use 'sass:map';
+@use 'sass:math';
+@use './color';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+$-system-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+// These will be used in @font-face declarations
+// and to create font utility classes.
+// If the font file is null, the @font-face declaration
+// is skipped.
+$families: (
+  'Montserrat': (
+    ( null 400 normal ),
+    ( null 500 normal ),
+    ( null 600 normal ),
+    ( null 700 normal ),
+  )
+);
+
+$stacks: (
+  'Montserrat': ( 'Montserrat', sans-serif ),
+  'system': $-system-stack,
+  'sans-serif': ( sans-serif ),
+  'serif': ( serif ),
+  'monospace': ( monospace )
+);
+
+$text-sizes: (
+  xsmall: 12px,
+  small: 14px,
+  medium: 16px,
+  large: 18px,
+  xlarge: 20px,
+  title: 28px,
+);
+
+$root-size: 100%; // 16px on all major browsers
+$default-color: map.get(color.$palette, 'near-black');
+$default-stack: map.get($stacks, 'Montserrat');
+$default-base: 16;
+$default-size: math.div(16, $default-base) * 1rem;
+$default-style: normal;
+$default-weight: normal;
+$default-line-height: 1.5;
+$default-letter-spacing: 0;
+$default-text-decoration: none;
+$default-text-transform: none;
+
+$modular-scale-ratio: '3@5';

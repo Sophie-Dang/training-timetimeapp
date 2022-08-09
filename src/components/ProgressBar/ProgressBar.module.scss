@@ -1,0 +1,36 @@
+@use '/src/front/config/sass' as *;
+
+.progressbar {
+  --progressbar-width: 20%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: rem(20);
+  margin-top: rem(6);
+  border-radius: rem(5);
+  background-color: get-color('near-black');
+  text-align: center;
+  color: get-color('gray-20');
+  font-weight: 600;
+
+  &_progress {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: var(--progressbar-width);
+    height: 100%;
+    border-radius: rem(5);
+    background-color: get-color('deep-blue-sea');
+    transition: width 0.3s ease-in-out;
+  }
+
+  &_text {
+    position: relative;
+    z-index: 1;
+  }
+}

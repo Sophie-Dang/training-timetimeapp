@@ -1,0 +1,58 @@
+@use '/src/front/config/sass' as *;
+
+.table {
+  overflow-y: scroll;
+
+  &_row {
+    padding-top: rem(10);
+    padding-bottom: rem(10);
+    border-bottom: 1px solid get-color('gray-30');
+    font-size: get-font-size(small);
+
+    &_content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    
+      & > * {
+        padding-right: rem(10);
+      }
+    
+      & > *:first-child {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1;
+        color: $font-default-color;
+    
+        & > *:first-child {
+          min-width: rem(110);
+          padding-right: rem(10);
+        }
+      }
+    }
+  }
+}
+
+.infos {
+  display: flex;
+
+  & > * {
+    flex: 1;
+    min-width: rem(50);
+    padding-right: rem(10);
+    color: get-color('gray-50');
+  }
+}
+
+.edit {
+  width: rem(20);
+  padding: 0;
+  padding-right: rem(20);
+  cursor: pointer;
+}
+
+.chevron {
+  width: rem(16);
+  padding: 0;
+  cursor: pointer;
+}

@@ -1,0 +1,149 @@
+@use '../../config/sass' as *;
+@use '../../abstract/grid-system/mixins' as *;
+
+.rich-text {
+  $-base: 16;
+
+  font-family: get-font-stack('system');
+  font-size: rem($-base);
+  line-height: 1.8em;
+
+  *:first-child {
+    margin-top: 0;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    color: get-color('gray-70');
+
+    &:hover {
+      color: get-primary-color();
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: em(24) 0 em(12) 0;
+    font-family: get-font-stack('system');
+    font-weight: 600;
+  }
+
+  h1 {
+    $font-size: calc-modular-scale-em(5);
+    $font-size-in-px: px($font-size);
+
+    font-size: $font-size;
+    line-height: em($font-size-in-px + 8, strip-unit($font-size-in-px));
+  }
+
+  h2 {
+    $font-size: calc-modular-scale-em(4);
+    $font-size-in-px: px($font-size);
+
+    font-size: $font-size;
+    line-height: em($font-size-in-px + 8, strip-unit($font-size-in-px));
+  }
+
+  h3 {
+    $font-size: calc-modular-scale-em(3);
+    $font-size-in-px: px($font-size);
+
+    font-size: $font-size;
+    line-height: em($font-size-in-px + 8, strip-unit($font-size-in-px));
+  }
+
+  h4 {
+    $font-size: calc-modular-scale-em(2);
+    $font-size-in-px: px($font-size);
+
+    font-size: $font-size;
+    line-height: em($font-size-in-px + 8, strip-unit($font-size-in-px));
+  }
+
+  h5 {
+    $font-size: calc-modular-scale-em(1);
+    $font-size-in-px: px($font-size);
+
+    font-size: $font-size;
+    line-height: em($font-size-in-px + 8, strip-unit($font-size-in-px));
+  }
+
+  h6 {
+    $font-size: calc-modular-scale-em(0);
+    $font-size-in-px: px($font-size);
+
+    font-size: $font-size;
+    line-height: em($font-size-in-px + 8, strip-unit($font-size-in-px));
+  }
+
+  p {
+    margin: 0 0 em(16) 0;
+  }
+
+  ul,
+  ol {
+    margin: em(24) 0;
+  }
+
+  li {
+    margin-bottom: em(4);
+  }
+
+  dl {
+    margin: em(24) 0;
+  }
+
+  dd {
+    margin-bottom: em(4);
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  figure {
+    margin: em(48) 0;
+  }
+
+  figcaption {
+    margin-top: em(16);
+    color: get-color('gray-50');
+    font-size: em(14);
+  }
+
+  blockquote {
+    position: relative;
+    margin: em(24) 0 em(24) em(24);
+    color: get-primary-color();
+    font-size: em(20);
+    font-family: get-font-stack('serif');
+
+    &::before {
+      content: '"';
+      display: block;
+      position: absolute;
+      right: calc(100% + 1rem);
+      font-size: 2em;
+    }
+  }
+
+  q {
+    font-family: get-font-stack('serif');
+  }
+}
+
+@include up('medium') {
+  .rich-text {
+    blockquote {
+      margin-left: em(40);
+    }
+  }
+}

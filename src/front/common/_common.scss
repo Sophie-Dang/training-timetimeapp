@@ -1,0 +1,7 @@
+@use '../config/sass' as *;
+@use '../abstract/grid-system/mixins' as *;
+
+// Common misc syles may go here
+body {
+  color: $font-default-color;
+}

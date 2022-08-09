@@ -1,0 +1,110 @@
+
+@use '/src/front/config/sass/' as *;
+
+/*
+  Index
+  ---------- ---------- ---------- ---------- ----------
+  • Config
+  • Base Styles
+  • Base Styles: --isActive state
+  • Base Styles: --stretch state
+  • Animations
+*/
+
+/*
+  • Config
+  ---------- ---------- ---------- ---------- ----------
+*/
+$btn-container: (
+  height: 25px,
+  width: 100px,
+  padding: 0px,
+  text-padding: 5px 15px,
+  color: get-color('gray-20')
+);
+
+$btn: (
+  size: calc(map-get($btn-container, height) - (map-get($btn-container, padding) * 2)), // Dynamically get size with its container datas
+  color-start: url('../../../public/images/full.svg'), // Button's color when it's on left side
+  color-end: url('../../../public/images/empty.svg'), // Button's color when it's on right side
+  radius: 200px
+);
+
+/*
+  • Base Styles
+  ---------- ---------- ---------- ---------- ----------
+*/
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.button_container {
+  display: flex;
+  align-items: center;
+  order: 1;
+  position: relative;
+  height: map-get($btn-container, height);
+  width: map-get($btn-container, width);
+  padding: map-get($btn-container, text-padding);
+  border-radius: 100px;
+  background: map-get($btn-container, color);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  & > span:first-child {
+    position: absolute;
+    left: map-get($btn-container, padding);
+    top: map-get($btn-container, padding);
+    height: map-get($btn, size);
+    width: map-get($btn, size);
+    border-radius: map-get($btn, radius);
+    background: map-get($btn, color-start);
+    transform-origin: center center;
+    transition: background 0.3s ease, left 0.3s ease-in-out, width 0.3s ease;
+  }
+
+  & > span:nth-child(2) {
+    transition: padding-left 0.4s;
+  }
+}
+
+.input {
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0;
+
+  & + label,
+  label {
+    margin: 0;
+  }
+}
+
+.left {
+  order: 0;
+}
+
+.right {
+  order: 2;
+}
+
+/*
+  • Base Styles: --isActive state
+  ---------- ---------- ---------- ---------- ----------
+*/
+.active {
+  left: calc(100% - (map-get($btn, size) + map-get($btn-container, padding))) !important;
+  background: map-get($btn, color-end) !important;
+}
+
+.container_active {
+  background-color: get-color('gray-70');
+  color: get-color('gray-20');
+}

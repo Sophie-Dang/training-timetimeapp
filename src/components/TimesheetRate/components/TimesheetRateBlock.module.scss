@@ -1,0 +1,17 @@
+@use '/src/front/config/sass' as *;
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: rem(80);
+  padding: rem(10);
+  border-radius: rem(2);
+  text-align: center;
+
+  &:nth-child(2n) {
+    margin-left: rem(10);
+    margin-right: rem(10);
+  }
+}

@@ -1,11 +1,11 @@
 import React from "react";
 import styles from './Home.module.scss';
+import TimesheetTable from '../../containers/TimesheetTable';
 import { 
   Header, 
   TimesheetFilters, 
   TimesheetPagination, 
-  TimesheetRate, 
-  TimesheetTable, 
+  TimesheetRate,
   ToolNav
 } from "../../components";
 

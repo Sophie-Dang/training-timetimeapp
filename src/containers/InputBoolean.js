@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 // Import : component
-import { InputBoolean } from '../components';
+import InputBoolean from '../components/InputBoolean/InputBoolean';
 
 // Import : actions
 import {

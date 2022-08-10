@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import InputBoolean from "../InputBoolean/InputBoolean";
+import InputBoolean from "../../containers/InputBoolean";
 import ChildElement from "../utils/ChildElement";
 
 function TimesheetFilters({children}) {

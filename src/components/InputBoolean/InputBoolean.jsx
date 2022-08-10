@@ -1,61 +1,36 @@
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import Proptypes from 'prop-types';
 import styles from './InputBoolean.module.scss';
 
-function InputBoolean({values, labels}) {
+function InputBoolean({values, labels, active, toggleButton}) {
 
-  const [click, setClick] = useState(false);
-  const [isActive, setIsActive] = useState({
-    button: '',
-    container: '',
-    additionalClass: 'u-padding-l-2',
-  });
-  const [check, setCheck] = useState({
-    left: false,
-    right: true,
-  });
-
-  useEffect(() => {
-    setCheck({
-      ...check, 
-      left: !check.left,
-      right: !check.right,
-    });
-
-    if (check.left === true) {
-      setIsActive({
-        ...isActive,
-        button: styles.active,
-        container: styles.container_active,
-        additionalClass: '',
-      });
-    } 
-    else {
-      setIsActive({
-        ...isActive, 
-        button: '', 
-        container: '',
-        additionalClass: 'u-padding-l-2',
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [click])
-  
+  const classes = {
+    button: active === true ? styles.active : '',
+    container: active === true ? styles.container_active : '',
+    paddingLeft: active === true ? '' : 'u-padding-l-2',
+  };
 
   return (
     <div className={styles.container}>
-        <div className={`${styles.button_container} ${isActive.container}`} onClick={() => setClick(!click)}>
-          <span className={isActive.button}></span>
-          <span className={`t-base-xsmall t-weight-500 ${isActive.additionalClass}`}>{check.left === true ? labels.left : labels.right}</span>
+        <div className={`${styles.button_container} ${classes.container}`} onClick={toggleButton}>
+          <span className={classes.button}></span>
+          <span className={`t-base-xsmall t-weight-500 ${classes.paddingLeft}`}>{active === true ? labels.left : labels.right}</span>
         </div>
         <div className={styles.left}>
-            <input className={styles.input} type="radio" name="button-boolean" id="left" value={values.left} checked={check.left} readOnly />
+            <input className={styles.input} type="radio" name="button-boolean" id="left" value={values.left} checked={active} readOnly />
         </div>
         <div className={styles.right}>
-            <input className={styles.input} type="radio" name="button-boolean" id="right" value={values.right} checked={check.right} readOnly  />
+            <input className={styles.input} type="radio" name="button-boolean" id="right" value={values.right} checked={!active} readOnly  />
         </div>
     </div>
   )
+}
+
+InputBoolean.propTypes = {
+  values: Proptypes.object.isRequired,
+  labels: Proptypes.object.isRequired,
+  active: Proptypes.bool.isRequired,
+  toggleButton: Proptypes.func.isRequired,
 }
 
 export default InputBoolean;

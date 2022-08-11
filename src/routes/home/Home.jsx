@@ -11,9 +11,9 @@ import {
 
 function Home() {
   return (
-    <div className={styles.container}>
+    <div className={`u-flex u-flex-column ${styles.container}`}>
       <Header title="Mes entrées" />
-      <main className="homepage-content">
+      <main className="homepage-content u-flex u-flex-column u-fill-space">
         <div className={`select u-margin-b-2 u-margin-t-4 ${styles.select}`}>
           <select name="dateFilter" id="dateFilter">
             <option value="week">Cette semaine</option>
@@ -26,7 +26,7 @@ function Home() {
 
         <TimesheetRate />
 
-        <section className={styles.timesheets_container}>
+        <section className={`u-flex u-flex-column u-fill-space ${styles.timesheets_container}`}>
           <TimesheetFilters>
             <TimesheetPagination>
               <TimesheetTable />

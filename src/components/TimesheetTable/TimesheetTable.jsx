@@ -26,7 +26,7 @@ function TimesheetTable({prevId, toggleAccordion}) {
   }
 
   return (
-    <div className={`timesheets-table u-fill-space ${styles.table}`}>
+    <div className={`timesheets-table u-fill-space u-margin-b-3 ${styles.table}`}>
       <ul>
         { timesheetsDatas.map(data => (
           <li className={`${styles.table_row} ${styles.close}`} onClick={(evt) => handleClick(evt.currentTarget)} id={data.id} key={`timesheet-${data.id}`}>

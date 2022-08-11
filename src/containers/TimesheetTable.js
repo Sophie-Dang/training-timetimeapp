@@ -7,8 +7,8 @@ const mapState = (state) => ({
 })
 
 const mapDispatch = (dispatch) => ({
-  toggleAccordion: (elementID) => {
-    dispatch({type: 'accordion/toggleAccordion', payload: elementID});
+  toggleAccordion: (payload) => {
+    dispatch({type: 'accordion/toggleAccordion', payload: payload});
   }
 })
 

@@ -6,12 +6,12 @@ import {
 
 const mapState = (state) => ({
   accordion: state.accordion,
-  show: state.accordion.show,
+  prevId: state.accordion.prevId,
 })
 
 const mapDispatch = (dispatch) => ({
-  toggleAccordion: (payload) => {
-    dispatch(toggleAccordion(payload));
+  toggleAccordion: (elementID) => {
+    dispatch(toggleAccordion(elementID));
   }
 })
 

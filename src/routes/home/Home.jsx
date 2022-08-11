@@ -27,11 +27,11 @@ function Home() {
         <TimesheetRate />
 
         <section className={`u-flex u-flex-column u-fill-space ${styles.timesheets_container}`}>
-          <TimesheetFilters>
-            <TimesheetPagination>
+          <TimesheetPagination>
+            <TimesheetFilters>
               <TimesheetTable />
-            </TimesheetPagination>
-          </TimesheetFilters>
+            </TimesheetFilters>
+          </TimesheetPagination>
         </section>
 
         <ToolNav />

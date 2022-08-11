@@ -3,21 +3,8 @@ import Proptypes from 'prop-types';
 import { timesheetsDatas } from "../../store/datas/dataList";
 import styles from './TimesheetTable.module.scss';
 
-function TimesheetTable({prevId, toggleAccordion}) {
-  // let text = ''
+function TimesheetTable({toggleAccordion}) {
   const handleClick = (target) => {
-    // if (prevId !== target.id) {
-    //   text = 'NOT EQUAL'
-    // } else {
-    //   text = 'EQUAL'
-    // }
-
-    // console.log({
-    //   text: text,
-    //   current: target.id,
-    //   prev: prevId,
-    // })
-    
     toggleAccordion({
       target: target.id,
       classClose: styles.close,

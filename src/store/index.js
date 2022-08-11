@@ -1,19 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import { compose, applyMiddleware } from 'redux';
-import rootReducer from './reducers';
-
-// Enhancers
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// const enhancers = composeEnhancers(
-//   applyMiddleware(
-//     // secondMiddleware,
-//   ),
-// );
+import { accordion } from './accordion';
+import { filterTimesheetListSlice } from './filterTimesheetList';
 
 // Store
 const store = configureStore({
-  reducer: rootReducer, 
-  // middleware: enhancers,
+  reducer: {
+    filterTimesheet: filterTimesheetListSlice.reducer,
+    accordion: accordion.reducer,
+  }
 });
 
 // Export

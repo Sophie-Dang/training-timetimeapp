@@ -1,8 +1,5 @@
 import { connect } from "react-redux";
 import TimesheetTable from "../components/TimesheetTable/TimesheetTable";
-import {
-  toggleAccordion
-} from '../store/actions/accordion';
 
 const mapState = (state) => ({
   accordion: state.accordion,
@@ -11,7 +8,7 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch) => ({
   toggleAccordion: (elementID) => {
-    dispatch(toggleAccordion(elementID));
+    dispatch({type: 'accordion/toggleAccordion', payload: elementID});
   }
 })
 

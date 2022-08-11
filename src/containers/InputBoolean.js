@@ -1,21 +1,14 @@
 import { connect } from 'react-redux';
-
-// Import : component
 import InputBoolean from '../components/InputBoolean/InputBoolean';
 
-// Import : actions
-import {
-  toggleInputBooleanFilter,
-} from '../store/actions/filterTimesheet';
-
 const mapState = (state) => ({
-  timesheetList: state.timesheetList,
-  active: state.timesheetList.active,
+  timesheetList: state.filterTimesheet.timesheetList,
+  isActive: state.filterTimesheet.inputBoolean,
 });
 
 const mapDispatch = (dispatch) => ({
   toggleButton: () => {
-    dispatch(toggleInputBooleanFilter());
+    dispatch({type: 'filterTimesheet/toggleInputBooleanFilter'});
   }
 });
 

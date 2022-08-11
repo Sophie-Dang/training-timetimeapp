@@ -4,7 +4,7 @@ import TimesheetTable from '../../containers/TimesheetTable';
 import { 
   Header, 
   TimesheetFilters, 
-  TimesheetPagination, 
+  TimesheetPagination,
   TimesheetRate,
   ToolNav
 } from "../../components";

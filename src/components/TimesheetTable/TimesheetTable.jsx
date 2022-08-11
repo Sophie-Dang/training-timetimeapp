@@ -1,4 +1,5 @@
 import React from "react";
+import Proptypes from 'prop-types';
 import { timesheetsDatas } from "../../store/datas/dataList";
 import styles from './TimesheetTable.module.scss';
 
@@ -27,8 +28,8 @@ function TimesheetTable({prevId, toggleAccordion}) {
   return (
     <div className={`timesheets-table u-fill-space ${styles.table}`}>
       <ul>
-        {timesheetsDatas.map((data, key) => (
-          <li className={`${styles.table_row} ${styles.close}`} onClick={(evt) => handleClick(evt.currentTarget)} id={key} key={data.clientName + key}>
+        { timesheetsDatas.map(data => (
+          <li className={`${styles.table_row} ${styles.close}`} onClick={(evt) => handleClick(evt.currentTarget)} id={data.id} key={`timesheet-${data.id}`}>
             <div className={`t-weight-500 ${styles.table_row_content}`}>
               <div>
                 <p>{data.clientName}</p>
@@ -39,7 +40,7 @@ function TimesheetTable({prevId, toggleAccordion}) {
               </div>
               <div className="u-flex u-align-items-center">
                 <button className={`button func-button ${styles.edit}`}><img src="./images/edit.svg" alt="Modifier le timesheet" /></button>
-                <img className={styles.chevron} id={`chevron-${key}`} src="./images/chevron.svg" alt="Ouvrir le détail" />
+                <img className={styles.chevron} id={`chevron-${data.id}`} src="./images/chevron.svg" alt="Ouvrir le détail" />
               </div>
             </div>
             <ul className={`${styles.table_row_details}`}>
@@ -51,10 +52,14 @@ function TimesheetTable({prevId, toggleAccordion}) {
             </ul>
           </li>
         ))}
-
       </ul>
     </div>
   )
 }
+
+TimesheetTable.propTypes = {
+  prevId: Proptypes.any,
+  toggleAccordion: Proptypes.func.isRequired,
+};
 
 export default TimesheetTable;

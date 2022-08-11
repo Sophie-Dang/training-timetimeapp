@@ -28,6 +28,8 @@ function InputBoolean({values, labels, isActive, toggleButton}) {
 InputBoolean.propTypes = {
   values: Proptypes.object.isRequired,
   labels: Proptypes.object.isRequired,
+  isActive: Proptypes.bool.isRequired,
+  toggleButton: Proptypes.func.isRequired,
 }
 
 export default InputBoolean;

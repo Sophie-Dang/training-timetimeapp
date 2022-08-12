@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Proptypes from 'prop-types';
 import ChildElement from '../utils/ChildElement';
 import styles from './TimesheetPagination.module.scss';
 
-function TimesheetPagination({children}) {
-  const [paginationState, setPaginationState] = useState({
-    datasNumber: 0,
-    pageNumber: 1,
-  })
-
+function TimesheetPagination({children, pageSize, getPageSize}) {
   return (
     <>
     <div className="timesheets-pagination u-flex u-justify-content-space-between u-align-items-center t-base-xsmall u-margin-b-2">
@@ -24,15 +20,22 @@ function TimesheetPagination({children}) {
         </div>
       </div>
       <div className={`select ${styles.select}`}>
-        <select name="datasNumberToDisplay" id="datasNumberToDisplay" onChange={(evt) => setPaginationState({...paginationState, datasNumber: evt.currentTarget.value})}>
+        <select name="datasNumberToDisplay" id="datasNumberToDisplay" onChange={(evt) => getPageSize({pageSize: evt.currentTarget.value})} defaultValue={pageSize}>
           <option value="100">100</option>
           <option value="200">200</option>
+          <option value="3">3</option>
         </select>
       </div>
     </div>
-    <ChildElement childrenProp={children} stateObj={paginationState} />
+    <ChildElement childrenProp={children} stateObj={{}} />
     </>
   )
 }
+
+TimesheetPagination.propTypes = {
+  children: Proptypes.any,
+  pageSize: Proptypes.any.isRequired,
+  getPageSize: Proptypes.func.isRequired,
+};
 
 export default TimesheetPagination;

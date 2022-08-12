@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { timesheetsDatas } from "./datas/dataList";
 
-export const filterTimesheetListSlice = createSlice({
+export const filterTimesheetSlice = createSlice({
   name: 'filterTimesheet',
   initialState: {
     timesheetList: timesheetsDatas,
@@ -10,6 +10,9 @@ export const filterTimesheetListSlice = createSlice({
   reducers: {
     toggleInputBooleanFilter: (state) => {
       state.inputBoolean = !state.inputBoolean;
-    }
+    },
+    getTimesheetList: (state) => {
+      state.timesheetList = timesheetsDatas;
+    },
   }
 })

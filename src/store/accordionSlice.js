@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const accordion = createSlice({
+export const accordionSlice = createSlice({
   name: 'accordion',
   initialState: {
     prevId: null,

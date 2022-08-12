@@ -1,10 +1,10 @@
 import React from "react";
 import styles from './Home.module.scss';
 import TimesheetTable from '../../containers/TimesheetTable';
+import TimesheetPagination from '../../containers/TimesheetPagination';
 import { 
   Header, 
   TimesheetFilters, 
-  TimesheetPagination,
   TimesheetRate,
   ToolNav
 } from "../../components";

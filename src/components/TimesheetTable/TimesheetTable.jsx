@@ -1,9 +1,8 @@
 import React from "react";
 import Proptypes from 'prop-types';
-import { timesheetsDatas } from "../../store/datas/dataList";
 import styles from './TimesheetTable.module.scss';
 
-function TimesheetTable({toggleAccordion}) {
+function TimesheetTable({toggleAccordion, timesheetList}) {
   const handleClick = (target) => {
     toggleAccordion({
       target: target.id,
@@ -15,7 +14,7 @@ function TimesheetTable({toggleAccordion}) {
   return (
     <div className={`timesheets-table u-fill-space u-margin-b-3 ${styles.table}`}>
       <ul>
-        { timesheetsDatas.map(data => (
+        { timesheetList.map(data => (
           <li className={`${styles.table_row} ${styles.close}`} onClick={(evt) => handleClick(evt.currentTarget)} id={data.id} key={`timesheet-${data.id}`}>
             <div className={`t-weight-500 ${styles.table_row_content}`}>
               <div>
@@ -47,6 +46,7 @@ function TimesheetTable({toggleAccordion}) {
 TimesheetTable.propTypes = {
   prevId: Proptypes.any,
   toggleAccordion: Proptypes.func.isRequired,
+  timesheetList: Proptypes.array.isRequired,
 };
 
 export default TimesheetTable;

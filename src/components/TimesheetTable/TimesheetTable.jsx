@@ -5,14 +5,9 @@ import styles from './TimesheetTable.module.scss';
 function TimesheetTable({toggleAccordion, timesheetList, setTimesheetList, currentPage, pageSize}) {
 
   useEffect(() => {
-    setTimesheetList();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage])
-
-  useEffect(() => {
     setTimesheetList({pageSize: pageSize});
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageSize])
+  }, [pageSize, currentPage])
   
   
   const handleClick = (target) => {

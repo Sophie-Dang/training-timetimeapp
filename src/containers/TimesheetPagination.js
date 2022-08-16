@@ -4,6 +4,7 @@ import TimesheetPagination from "../components/TimesheetPagination/TimesheetPagi
 const mapState = (state) => ({
   timesheetList: state.pagination.timesheetList,
   pageSize: state.pagination.pageSize,
+  currentPage: state.pagination.currentPage,
 })
 
 const mapDispatch = (dispatch) => ({

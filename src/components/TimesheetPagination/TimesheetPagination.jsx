@@ -3,7 +3,17 @@ import Proptypes from 'prop-types';
 import ChildElement from '../utils/ChildElement';
 import styles from './TimesheetPagination.module.scss';
 
-function TimesheetPagination({children, pageSize, setPageSize, nextPage, prevPage, firstPage, lastPage}) {
+function TimesheetPagination({
+  children,
+  currentPage,
+  pageSize,
+  setPageSize,
+  nextPage,
+  prevPage,
+  firstPage,
+  lastPage
+}) {
+  
   return (
     <>
     <div className="timesheets-pagination u-flex u-justify-content-space-between u-align-items-center t-base-xsmall u-margin-b-2">
@@ -13,7 +23,7 @@ function TimesheetPagination({children, pageSize, setPageSize, nextPage, prevPag
           <button className={`button func-button u-inline-block u-padding-0 ${styles.flipButton}`} onClick={firstPage}><img src="./images/chevron-double.svg" alt="première page" /></button>
           <button className={`button func-button u-inline-block u-padding-0 u-margin-l-1 ${styles.flipButton}`} onClick={prevPage}><img src="./images/chevron.svg" alt="page précèdente" /></button>
         </div>
-        <span className="u-margin-x-2">1</span>
+        <span className="u-margin-x-2">{currentPage}</span>
         <div>
           <button className="button func-button u-inline-block u-padding-0" onClick={nextPage}><img src="./images/chevron.svg" alt="page suivante" /></button>
           <button className="button func-button u-inline-block u-padding-0 u-margin-l-1" onClick={lastPage}><img src="./images/chevron-double.svg" alt="dernière page" /></button>
@@ -24,6 +34,7 @@ function TimesheetPagination({children, pageSize, setPageSize, nextPage, prevPag
           <option value="100">100</option>
           <option value="200">200</option>
           <option value="3">3</option>
+          <option value="2">2</option>
         </select>
       </div>
     </div>
@@ -34,8 +45,13 @@ function TimesheetPagination({children, pageSize, setPageSize, nextPage, prevPag
 
 TimesheetPagination.propTypes = {
   children: Proptypes.any,
-  pageSize: Proptypes.any.isRequired,
+  currentPage: Proptypes.number.isRequired,
+  pageSize: Proptypes.number.isRequired,
   setPageSize: Proptypes.func.isRequired,
+  nextPage: Proptypes.func.isRequired, 
+  prevPage: Proptypes.func.isRequired, 
+  firstPage: Proptypes.func.isRequired, 
+  lastPage: Proptypes.func.isRequired, 
 };
 
 export default TimesheetPagination;

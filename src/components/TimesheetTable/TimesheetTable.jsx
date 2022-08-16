@@ -2,7 +2,13 @@ import React, { useEffect } from "react";
 import Proptypes from 'prop-types';
 import styles from './TimesheetTable.module.scss';
 
-function TimesheetTable({toggleAccordion, timesheetList, setTimesheetList, currentPage, pageSize}) {
+function TimesheetTable({
+  toggleAccordion,
+  timesheetList,
+  setTimesheetList,
+  currentPage,
+  pageSize
+}) {
 
   useEffect(() => {
     setTimesheetList({pageSize: pageSize});
@@ -51,9 +57,11 @@ function TimesheetTable({toggleAccordion, timesheetList, setTimesheetList, curre
 }
 
 TimesheetTable.propTypes = {
-  prevId: Proptypes.any,
   toggleAccordion: Proptypes.func.isRequired,
   timesheetList: Proptypes.array.isRequired,
+  setTimesheetList: Proptypes.func.isRequired,
+  currentPage: Proptypes.number.isRequired,
+  pageSize: Proptypes.number.isRequired
 };
 
 export default TimesheetTable;

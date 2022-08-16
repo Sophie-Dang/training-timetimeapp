@@ -3,7 +3,6 @@ import TimesheetTable from "../components/TimesheetTable/TimesheetTable";
 
 const mapState = (state) => ({
   accordion: state.accordion,
-  prevId: state.accordion.prevId,
   timesheetList: state.pagination.timesheetList,
   currentPage: state.pagination.currentPage,
   pageSize: state.pagination.pageSize,

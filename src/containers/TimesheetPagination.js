@@ -2,9 +2,11 @@ import { connect } from "react-redux";
 import TimesheetPagination from "../components/TimesheetPagination/TimesheetPagination";
 
 const mapState = (state) => ({
-  timesheetList: state.pagination.timesheetList,
+  totalTimesheet: state.pagination.totalTimesheet,
   pageSize: state.pagination.pageSize,
   currentPage: state.pagination.currentPage,
+  firstTimesheetIndex: state.pagination.firstTimesheetIndex,
+  lastTimesheetIndex: state.pagination.lastTimesheetIndex,
 })
 
 const mapDispatch = (dispatch) => ({

@@ -7,6 +7,7 @@ export const paginationSlice = createSlice({
   name: 'pagination',
   initialState: {
     timesheetList: timesheetsDatas,
+    totalTimesheet: timesheetsDatas.length,
     pageSize: defaultPageSize,
     currentPage: 1,
     totalPageCount: Math.ceil(timesheetsDatas.length / defaultPageSize),

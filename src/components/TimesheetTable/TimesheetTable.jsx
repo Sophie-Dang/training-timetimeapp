@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Proptypes from 'prop-types';
 import styles from './TimesheetTable.module.scss';
 
-function TimesheetTable({toggleAccordion, timesheetList}) {
+function TimesheetTable({toggleAccordion, timesheetList, setTimesheetList, currentPage, pageSize}) {
+
+  useEffect(() => {
+    setTimesheetList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage])
+
+  useEffect(() => {
+    setTimesheetList({pageSize: pageSize});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageSize])
+  
+  
   const handleClick = (target) => {
     toggleAccordion({
       target: target.id,

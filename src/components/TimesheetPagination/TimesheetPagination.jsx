@@ -1,21 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Proptypes from 'prop-types';
 import ChildElement from '../utils/ChildElement';
 import styles from './TimesheetPagination.module.scss';
+import Select from '../../containers/Select';
 
 function TimesheetPagination({
   children,
-  totalTimesheet,
-  firstTimesheetIndex,
-  lastTimesheetIndex,
-  currentPage,
-  pageSize,
-  setPageSize,
-  nextPage,
-  prevPage,
-  firstPage,
-  lastPage,
+  totalTimesheet, // reducer props
+  firstTimesheetIndex, // reducer props
+  lastTimesheetIndex, // reducer props
+  currentPage, // reducer props
+  pageSize, // reducer props
+  setPageSize, // reducer props
+  nextPage, // reducer props
+  prevPage, // reducer props
+  firstPage, // reducer props
+  lastPage, // reducer props
 }) {
+
+  const options = [
+    { value: 2 },
+    { value: 3 },
+    { value: 4 },
+    { value: 5 },
+    { value: 100 },
+    { value: 200 },
+  ]
+
+  useEffect(() => {
+    setPageSize({pageSize: pageSize});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const handleChange = (evt) => {
+    setPageSize({pageSize: evt.currentTarget.value})
+  }
   
   return (
     <>
@@ -32,14 +51,18 @@ function TimesheetPagination({
           <button className="button func-button u-inline-block u-padding-0 u-margin-l-1" onClick={lastPage}><img src="./images/chevron-double.svg" alt="dernière page" /></button>
         </div>
       </div>
-      <div className={`select ${styles.select}`}>
+      {/* <div className={`select ${styles.select}`}>
         <select name="datasNumberToDisplay" id="datasNumberToDisplay" onChange={(evt) => setPageSize({pageSize: evt.currentTarget.value})} defaultValue={pageSize}>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
           <option value="100">100</option>
           <option value="200">200</option>
-          <option value="3">3</option>
-          <option value="2">2</option>
         </select>
-      </div>
+      </div> */}
+      <Select id={'paginationSelect'} name={'pagination_select'} options={options} optionDefault={3} handleChange={handleChange} />
+      {/* <Select id={'paginationSelect'} name={'pagination_select'} options={options} optionDefault={4} /> */}
     </div>
     <ChildElement childrenProp={children} stateObj={{}} />
     </>

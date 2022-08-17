@@ -1,0 +1,66 @@
+@use '/src/front/config/sass' as *;
+
+$horizontal-padding: 8px;
+
+.container {
+  position: relative;
+}
+
+.select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: rem(59);
+  padding: rem(6) $horizontal-padding;
+  border: 1px solid get-color('gray-30');
+  border-radius: rem(5);
+  color: $font-default-color;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: rem(10);
+    height: rem(10);
+    margin-left: rem(10);
+    background-image: url('../../../public/images/chevron.svg'), none;
+    transform: rotate(90deg);
+  }
+
+  &:focus {
+    border-color: get-color('moutarde');
+  }
+}
+
+.select_expanded {
+
+}
+
+.options_list {
+  position: absolute;
+  bottom: auto;
+  left: 0;
+  z-index: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  max-height: 0;
+  margin-top: rem(5);
+  border-radius: rem(5);
+  background-color: get-color('gray-20');
+  transition: max-height 0.4s ease-in-out;
+
+  li {
+    padding: $horizontal-padding;
+
+    &:hover,
+    &:focus {
+      background-color: get-color('gray-30');
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+.options_show {
+  max-height: 100vh;
+}

@@ -274,6 +274,7 @@ input[type="radio"] {
   align-items: center;
   position: relative;
   height: $widget-height;
+  min-width: rem(60);
   padding: rem(6) var(--horizontal-padding);
   border: 1px solid get-color('gray-30');
   border-radius: rem(5);

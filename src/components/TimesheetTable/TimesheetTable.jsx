@@ -3,11 +3,11 @@ import Proptypes from 'prop-types';
 import styles from './TimesheetTable.module.scss';
 
 function TimesheetTable({
-  toggleAccordion,
-  timesheetList,
-  setTimesheetList,
-  currentPage,
-  pageSize
+  toggleAccordion, // reducer props
+  timesheetList, // reducer props
+  setTimesheetList, // reducer props
+  currentPage, // reducer props
+  pageSize, // reducer props
 }) {
 
   useEffect(() => {

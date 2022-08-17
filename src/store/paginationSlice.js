@@ -30,8 +30,7 @@ export const paginationSlice = createSlice({
       }
 
       // ----- Range of datas -----
-      const totalPageNumbers = state.currentPage + 5;
-      state.range = totalPageNumbers >= state.totalPageCount ? range(1, state.totalPageCount) : state.range;
+      state.range = range(1, state.totalPageCount);
     },
     nextPage: (state) => {
       state.currentPage = state.currentPage < Math.max(...state.range) ? state.currentPage + 1 : Math.max(...state.range);

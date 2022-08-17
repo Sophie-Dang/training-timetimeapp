@@ -2,7 +2,12 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import styles from './InputBoolean.module.scss';
 
-function InputBoolean({values, labels, isActive, toggleButton}) {
+function InputBoolean({
+  values,
+  labels,
+  isActive, // reducer props
+  toggleButton, // reducer props
+}) {
   const classes = {
     button: isActive === true ? styles.active : '',
     container: isActive === true ? styles.container_active : '',

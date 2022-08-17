@@ -28,13 +28,6 @@ function Home() {
       <Header title="Mes entrées" />
       <main className="homepage-content u-flex u-flex-column u-fill-space">
         <div className={` u-margin-b-2 u-margin-t-4 ${styles.select}`}>
-          {/* <select name="dateFilter" id="dateFilter">
-            <option value="week">Cette semaine</option>
-            <option value="today">Aujourd'hui</option>
-            <option value="month">Ce mois-ci</option>
-            <option value="month-3">Ces 3 derniers mois</option>
-            <option value="year">Cette année</option>
-          </select> */}
           <Select id={'dateFilter'} name={'date_filter'} options={dateFilterOptions} optionDefault={'week'} handleChange={handleSelect} />
         </div>
 

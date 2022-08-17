@@ -51,18 +51,7 @@ function TimesheetPagination({
           <button className="button func-button u-inline-block u-padding-0 u-margin-l-1" onClick={lastPage}><img src="./images/chevron-double.svg" alt="dernière page" /></button>
         </div>
       </div>
-      {/* <div className={`select ${styles.select}`}>
-        <select name="datasNumberToDisplay" id="datasNumberToDisplay" onChange={(evt) => setPageSize({pageSize: evt.currentTarget.value})} defaultValue={pageSize}>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="100">100</option>
-          <option value="200">200</option>
-        </select>
-      </div> */}
       <Select id={'paginationSelect'} name={'pagination_select'} options={options} optionDefault={3} handleChange={handleChange} size={'small'} />
-      {/* <Select id={'paginationSelect'} name={'pagination_select'} options={options} optionDefault={4} /> */}
     </div>
     <ChildElement childrenProp={children} stateObj={{}} />
     </>

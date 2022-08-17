@@ -8,20 +8,34 @@ import {
   TimesheetRate,
   ToolNav
 } from "../../components";
+import Select from "../../containers/Select";
 
 function Home() {
+  const dateFilterOptions = [
+    {value: 'week', label: 'Cette semaine'},
+    {value: 'today', label: 'Aujourd\'hui'},
+    {value: 'month', label: 'Ce mois-ci'},
+    {value: 'month-3', label: 'Ces 3 derniers mois'},
+    {value: 'year', label: 'Cette année'},
+  ]
+
+  const handleSelect = (evt) => {
+    // console.log(evt.currentTarget.value);
+  }
+
   return (
     <div className={`u-flex u-flex-column ${styles.container}`}>
       <Header title="Mes entrées" />
       <main className="homepage-content u-flex u-flex-column u-fill-space">
-        <div className={`select u-margin-b-2 u-margin-t-4 ${styles.select}`}>
-          <select name="dateFilter" id="dateFilter">
+        <div className={` u-margin-b-2 u-margin-t-4 ${styles.select}`}>
+          {/* <select name="dateFilter" id="dateFilter">
             <option value="week">Cette semaine</option>
             <option value="today">Aujourd'hui</option>
             <option value="month">Ce mois-ci</option>
             <option value="month-3">Ces 3 derniers mois</option>
             <option value="year">Cette année</option>
-          </select>
+          </select> */}
+          <Select id={'dateFilter'} name={'date_filter'} options={dateFilterOptions} optionDefault={'week'} handleChange={handleSelect} />
         </div>
 
         <TimesheetRate />

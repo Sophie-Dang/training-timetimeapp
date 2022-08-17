@@ -9,12 +9,17 @@ function Select({
   options,
   optionDefault,
   handleChange,
+  size = 'medium',
   toggleOptions, // reducer props
   addSelect, // reducer props
   selects, // reducer props
   setSelect // reducer props
 }) {
 
+  const sizeClass = {
+    small: styles.select_small,
+    medium: '',
+  }
   const defaultSelectObj = {
     id: id,
     name: name,
@@ -22,9 +27,11 @@ function Select({
     selectedOption: optionDefault,
     isOptionsOpen: false,
   }
-  const currentSelect = selects.length > 0 ? selects.find(select => id === select.id) : defaultSelectObj;
-  const isOptionsOpen = currentSelect.isOptionsOpen
+  const select = selects.length > 0 ? selects.find(select => id === select.id) : defaultSelectObj;
+  const currentSelect = undefined !== select ? select : defaultSelectObj;
+  const isOptionsOpen = currentSelect.isOptionsOpen;
   const selectedOption = currentSelect.selectedOption;
+  const selectedOptionLabel = currentSelect.options.find(option => option.value === selectedOption);
 
   useEffect(() => {
     addSelect(defaultSelectObj);
@@ -32,22 +39,22 @@ function Select({
   }, [])
 
   const handleSelect = (evt) => {
-    setSelect({selectId: evt.currentTarget.dataset.select, value: evt.currentTarget.value});
+    setSelect({selectId: evt.currentTarget.dataset.select, value: evt.currentTarget.dataset.value});
     handleChange(evt);
   }
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${sizeClass[size]}`}>
       <button
         type="button"
         name={name}
         id={id}
         aria-haspopup="listbox"
         aria-expanded={isOptionsOpen}
-        className={`button func-button t-base-xsmall ${styles.select} ${isOptionsOpen ? styles.select_expanded : ""}`}
+        className={`button func-button ${styles.select} ${isOptionsOpen ? styles.select_expanded : ""}`}
         onClick={(evt) => toggleOptions(evt.currentTarget.id)} >
 
-        {selectedOption}
+        {selectedOptionLabel && selectedOptionLabel.label ? selectedOptionLabel.label : selectedOption}
 
       </button>
       <ul
@@ -62,6 +69,7 @@ function Select({
             value={option.value}
             key={`option-${id}-${index}`}
             data-select={id}
+            data-value={option.value}
             role="option"
             aria-selected={selectedOption === index}
             tabIndex={0}
@@ -83,6 +91,7 @@ Select.propTypes = {
   options: PropTypes.array.isRequired,
   optionDefault: PropTypes.any.isRequired,
   handleChange: PropTypes.func.isRequired,
+  size: PropTypes.string,
   toggleOptions: PropTypes.func.isRequired,
   addSelect: PropTypes.func.isRequired,
   selects: PropTypes.array.isRequired,

@@ -61,7 +61,7 @@ function TimesheetPagination({
           <option value="200">200</option>
         </select>
       </div> */}
-      <Select id={'paginationSelect'} name={'pagination_select'} options={options} optionDefault={3} handleChange={handleChange} />
+      <Select id={'paginationSelect'} name={'pagination_select'} options={options} optionDefault={3} handleChange={handleChange} size={'small'} />
       {/* <Select id={'paginationSelect'} name={'pagination_select'} options={options} optionDefault={4} /> */}
     </div>
     <ChildElement childrenProp={children} stateObj={{}} />

@@ -6,10 +6,10 @@ import {
   Header, 
   TimesheetFilters, 
   TimesheetRate,
-  ToolNav
 } from "../../components";
 import Select from "../../containers/Select";
 import TimesheetFormEvent from "../../containers/TimesheetFormEvent";
+import ToolNav from "../../containers/ToolNav";
 
 function Home() {
   const dateFilterOptions = [

@@ -1,6 +1,6 @@
 import React from "react";
 
-function ChildElement({childrenProp, stateObj}) {
+function ChildElement({childrenProp, stateObj= {}}) {
   if (!isNaN(childrenProp.length)) {
     let childrenList = [];
     let i = 0;

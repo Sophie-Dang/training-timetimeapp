@@ -1,0 +1,91 @@
+@use '/src/front/config/sass' as *;
+
+.container {
+  position: absolute;
+  top: 0;
+  left: - rem(22);
+  width: 100vw;
+  height: calc(100% + rem(130));
+  padding: rem(42) rem(22);
+  border-radius: 50px 50px 0px 0px;
+  background: get-color('white');
+  box-shadow: 0px 4px 250px rgba(0, 0, 0, 0.15);
+  transform: translateY(0);
+  animation: slideUp 0.4s ease-in-out;
+
+  &_close {
+    transform: translateY(100vh);
+    animation: slideDown 0.4s ease-in-out;
+  }
+
+  &_scroll {
+    overflow-y: scroll;
+    height: calc(100% - rem(115));
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: rem(15);
+  border-bottom: 1px solid get-color('gray-80');
+}
+
+.chevron {
+  width: rem(16);
+  height: auto;
+  padding: 0;
+  cursor: pointer;
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+
+  &_down {
+    width: auto;
+    height: rem(16);
+    cursor: pointer;
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+  }
+}
+
+.content {
+  max-height: rem(650);
+  background: get-color('gray-20');
+  background: linear-gradient(270deg, rgba(239, 239, 239, 0) 0%, #F8F8F8 53.03%, rgba(239, 239, 239, 0) 108.31%);
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out, padding 0.4s;
+
+  &_list {
+    border-bottom: 1px solid get-color('gray-30');
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  &_close {
+    & + ul {
+      max-height: 0;
+      padding: 0;
+    }
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}

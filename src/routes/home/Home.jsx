@@ -9,6 +9,7 @@ import {
   ToolNav
 } from "../../components";
 import Select from "../../containers/Select";
+import TimesheetFormEvent from "../../containers/TimesheetFormEvent";
 
 function Home() {
   const dateFilterOptions = [
@@ -26,8 +27,8 @@ function Home() {
   return (
     <div className={`u-flex u-flex-column ${styles.container}`}>
       <Header title="Mes entrées" />
-      <main className="homepage-content u-flex u-flex-column u-fill-space">
-        <div className={` u-margin-b-2 u-margin-t-4 ${styles.select}`}>
+      <main className="homepage-content u-relative u-flex u-flex-column u-fill-space u-margin-t-4">
+        <div className={` u-margin-b-2 ${styles.select}`}>
           <Select id={'dateFilter'} name={'date_filter'} options={dateFilterOptions} optionDefault={'week'} handleChange={handleSelect} />
         </div>
 
@@ -40,7 +41,7 @@ function Home() {
             </TimesheetFilters>
           </TimesheetPagination>
         </section>
-
+        <TimesheetFormEvent />
         <ToolNav />
       </main>
     </div>

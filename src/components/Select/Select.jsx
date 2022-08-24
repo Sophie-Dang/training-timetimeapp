@@ -19,6 +19,7 @@ function Select({
   const sizeClass = {
     small: styles.select_small,
     medium: '',
+    large: styles.select_large,
   }
   const defaultSelectObj = {
     id: id,
@@ -86,12 +87,18 @@ function Select({
 }
 
 Select.propTypes = {
+  /** CPT - The select name */
   name: PropTypes.string.isRequired,
+  /** CPT - The select id (must be unique) */
   id: PropTypes.string.isRequired,
+  /** CPT - All select options */
   options: PropTypes.array.isRequired,
+  /** CPT - The option displayed by default */
   optionDefault: PropTypes.any.isRequired,
+  /** CPT - The handler function */
   handleChange: PropTypes.func.isRequired,
-  size: PropTypes.string,
+  /** CPT - The select size : small || large || medium || null */
+  size: PropTypes.string.isRequired,
   toggleOptions: PropTypes.func.isRequired,
   addSelect: PropTypes.func.isRequired,
   selects: PropTypes.array.isRequired,

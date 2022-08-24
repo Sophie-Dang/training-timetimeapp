@@ -5,6 +5,7 @@ import { customInputSlice } from './customInputSlice';
 import { eventFormSlice } from './eventFormSlice';
 import { filterTimesheetSlice } from './filterTimesheetSlice';
 import { paginationSlice } from './paginationSlice';
+import { toolNavSlice } from './toolNavSlice';
 
 // Store
 const store = configureStore({
@@ -15,6 +16,7 @@ const store = configureStore({
     customInput: customInputSlice.reducer,
     eventForm: eventFormSlice.reducer,
     card: cardSlice.reducer,
+    toolNav: toolNavSlice.reducer,
   }
 });
 

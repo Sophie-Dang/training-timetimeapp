@@ -4,6 +4,7 @@ export const cardSlice = createSlice({
   name: 'card',
   initialState: {
     cards: [],
+    cardOpened: '',
   },
   reducers: {
     addCard: (state, action) => {
@@ -19,6 +20,7 @@ export const cardSlice = createSlice({
     toggleCard: (state, action) => {
       const currentCardIndex = state.cards.findIndex(card => action.payload.id === card.id);
       state.cards[currentCardIndex].isOpen = !state.cards[currentCardIndex].isOpen;
+      state.cardOpened = action.payload.id;
     }
   }
 })

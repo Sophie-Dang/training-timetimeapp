@@ -1,0 +1,66 @@
+@use '/src/front/config/sass' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: rem(46) rem(22) 0;
+  background-color: get-color('gray-70');
+
+  & > * {
+    animation: fade 3s ease;
+  }
+
+  label {
+    min-width: fit-content;
+    min-width: -moz-fit-content;
+    font-weight: 600;
+  }
+}
+
+.form {
+  flex: 8 0;
+  width: 100vw;
+  padding: rem(45) rem(22);
+  border-top-left-radius: rem(50);
+  border-top-right-radius: rem(50);
+  transform: translateX(- rem(22));
+
+  &_section {
+    margin-bottom: rem(35);
+  }
+
+  &_slider {
+    display: flex;
+    overflow-x: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    margin-left: rem(10);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    button {
+      min-width: fit-content;
+      min-width: -moz-fit-content;
+    }
+  }
+}
+
+.progressbar {
+  flex: 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: rem(30);
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

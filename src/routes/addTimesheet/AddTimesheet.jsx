@@ -58,7 +58,7 @@ function AddTimesheet() {
           </div>
 
           <div>
-          <Select id={'project'} name={'project'} options={projectOptions} optionDefault={'week'} size={'large'} handleChange={handleProject} />
+          <Select id={'time'} name={'time'} options={projectOptions} optionDefault={'week'} size={'large'} handleChange={handleProject} />
           </div>
         </div>
         

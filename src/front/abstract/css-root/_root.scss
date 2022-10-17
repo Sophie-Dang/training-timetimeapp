@@ -1,4 +1,5 @@
 @use '../../config/sass' as *;
+@use '../grid-system/mixins' as *;
 
 @-ms-viewport {
   width: device-width;
@@ -16,6 +17,10 @@ html {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   font-size: $font-root-size;
+
+  @include down('xs') {
+    font-size: 80%;
+  }
 }
 
 *,

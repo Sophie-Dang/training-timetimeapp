@@ -12,6 +12,13 @@ $base: (
 );
 
 $breakpoints: (
+  xsmall: (
+    shorthand: 'xs',
+    value: rem(350),
+    margins: null,
+    max-width: rem(350),
+    gutters: null
+  ),
   small: (
     shorthand: 'sm',
     value: rem(560),

@@ -1,8 +1,11 @@
 @use '/src/front/config/sass' as *;
+@use '/src/front/abstract/grid-system/mixins' as *;
 
 .container {
-  min-height: 100vh;
-  padding: rem(46) rem(22) rem(130);
+  min-height: calc(100vh - 8.9rem);
+  height: calc(100vh - 8.9rem);
+  padding: rem(46) rem(22) 0;
+  overflow: hidden;
 }
 
 .select {
@@ -12,7 +15,6 @@
 .timesheets_container {
   display: flex;
   flex-direction: column;
-  min-height: rem(312);
-  height: 100%;
-  max-height: 100%;
+  height: auto;
+  overflow: hidden;
 }

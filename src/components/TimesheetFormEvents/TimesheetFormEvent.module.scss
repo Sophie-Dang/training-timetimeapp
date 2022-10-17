@@ -5,7 +5,13 @@
 
   &_scroll {
     overflow-y: scroll;
-    height: calc(100% - rem(115));
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    height: 100%;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
@@ -13,7 +19,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: rem(15);
   border-bottom: 1px solid get-color('gray-80');
 }
 

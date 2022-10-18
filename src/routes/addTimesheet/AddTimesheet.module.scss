@@ -7,7 +7,8 @@
   padding: rem(46) rem(22) 0;
   background-color: get-color('gray-70');
 
-  & > * {
+  & > *:first-child,
+  & > *:nth-child(2) {
     animation: fade 3s ease;
   }
 
@@ -19,15 +20,27 @@
 }
 
 .form {
+  --padding-x: 1.375rem;
+
   flex: 8 0;
   width: 100vw;
-  padding: rem(45) rem(22);
+  padding: rem(45) var(--padding-x);
+  padding-right: 0;
   border-top-left-radius: rem(50);
   border-top-right-radius: rem(50);
-  transform: translateX(- rem(22));
+  margin-left: - rem(22);
+  animation: slide-up-basic 0.6s ease-out;
 
   &_section {
     margin-bottom: rem(35);
+
+    & > * {
+      padding-right: var(--padding-x);
+    }
+  }
+
+  &_slider_container {
+    padding-right: 0;
   }
 
   &_slider {
@@ -62,5 +75,14 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes slide-up-basic {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

@@ -1,19 +1,12 @@
 import { connect } from 'react-redux';
-import ToolNav from '../components/ToolNav/ToolNav';
+import AddTimesheet from '../routes/addTimesheet/AddTimesheet';
 
 const mapState = (state) => ({
-  currentTemplate: state.toolNav.currentTemplate,
   templates: state.toolNav.templates,
-  currentType: state.toolNav.currentType,
   types: state.toolNav.types,
-  cardOpened: state.card.cardOpened,
-  isAnimated: state.toolNav.isAnimated,
 });
 
 const mapDispatch = (dispatch) => ({
-  toggleCard: (payload) => {
-    dispatch({type: 'card/toggleCard', payload: payload});
-  },
   setType: (payload) => {
     dispatch({type: 'toolNav/setType', payload: payload});
   },
@@ -22,4 +15,4 @@ const mapDispatch = (dispatch) => ({
   },
 });
 
-export default connect(mapState, mapDispatch)(ToolNav);
+export default connect(mapState, mapDispatch)(AddTimesheet);

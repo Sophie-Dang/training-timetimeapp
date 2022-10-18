@@ -274,11 +274,36 @@ $button-height: rem(50);
   background: none;
   line-height: inherit;
   white-space: nowrap;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.3s ease-in-out;
 
   &:hover,
   &:focus {
-    //background: rgba(get-color('black'), 0.05);
+    transform: translateY(-8px);
+  }
+
+  &--rounded {
+    height: rem(50);
+    width: rem(50);
+    border-radius: 50%;
+    background-color: get-color('gray-60');
+
+    &:hover,
+    &:focus {
+      transform: translateY(-8px);
+    }
+  }
+
+  &--lg-rounded {
+    height: rem(68);
+    width: rem(68);
+    border-radius: 50%;
+    background-color: get-color('moutarde');
+    color: get-color('gray-80');
+
+    &:hover,
+    &:focus {
+      transform: translateY(-8px);
+    }
   }
 }
 

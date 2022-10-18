@@ -98,7 +98,7 @@ Select.propTypes = {
   /** CPT - The handler function */
   handleChange: PropTypes.func.isRequired,
   /** CPT - The select size : small || large || medium || null */
-  size: PropTypes.string.isRequired,
+  size: PropTypes.string,
   toggleOptions: PropTypes.func.isRequired,
   addSelect: PropTypes.func.isRequired,
   selects: PropTypes.array.isRequired,

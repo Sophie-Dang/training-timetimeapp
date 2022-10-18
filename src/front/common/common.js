@@ -13,6 +13,7 @@ export default {
     // Fix for crappy vh size on iOS
     cssVhFix();
 
+    console.log('common');
     // Some helpers
     const replaceClass = (elmt, remove, add) => {
       for(const item of Array.from(elmt.classList)) {

@@ -2,8 +2,8 @@
 @use '/src/front/abstract/grid-system/mixins' as *;
 
 .container {
-  min-height: calc(100vh - 8.9rem);
-  height: calc(100vh - 8.9rem);
+  min-height: calc(var(--full-vh) - 8.9rem);
+  height: calc(var(--full-vh) - 8.9rem);
   padding: rem(46) rem(22) 0;
   overflow: hidden;
 }

@@ -5,10 +5,12 @@ import './front/index.scss';
 import { Route, Routes } from 'react-router-dom';
 
 // Routes
-import AddTimesheet from './routes/addTimesheet/AddTimesheet';
+import AddTimesheet from './containers/AddTimesheet';
 import Home from './routes/home/Home';
 
 function App() {
+  document.documentElement.style.setProperty('--full-vh', window.innerHeight + 'px');
+  
   return (
     <div className="App">
       <Routes>

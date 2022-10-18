@@ -3,7 +3,6 @@ const SELECTOR = `.${CLASS_NAME}`;
 
 function cssVhFix () {
   const vh = document.querySelector(SELECTOR).offsetHeight;
-
   document.documentElement.style.setProperty('--vh', `${vh / 100}px`);
   document.documentElement.style.setProperty('--full-vh', `${vh}px`);
 

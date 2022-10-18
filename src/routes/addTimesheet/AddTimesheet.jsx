@@ -2,9 +2,10 @@ import React from 'react';
 import { Header } from '../../components';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import Select from '../../containers/Select';
+import ToolNav from '../../containers/ToolNav';
 import styles from './AddTimesheet.module.scss';
 
-function AddTimesheet() {
+function AddTimesheet() {  
   const projectOptions = [
     {value: 'week', label: 'Sélectionner un projet'},
     {value: 'today', label: 'Projet 2'},
@@ -15,7 +16,7 @@ function AddTimesheet() {
   }
 
   return (
-    <div className={`addpage ${styles.container}`}>
+    <main className={`addpage ${styles.container}`}>
       <Header title={'Nouvelle Entrée'} theme={'dark'} />
 
       <section className={`jauge ${styles.progressbar}`}>
@@ -32,14 +33,14 @@ function AddTimesheet() {
         </div>
 
         <div className={styles.form_section}>
-          <div className={`u-margin-b-1 u-flex u-align-items-center`}>
+          <div className={`u-margin-b-1 u-flex u-align-items-center ${styles.form_slider_container}`}>
             <label htmlFor="project">Projets</label>
             <div className={`${styles.form_slider}`}>
               <button type='button' className='button t-base-xsmall t-weight-500 bg-layette u-margin-r-1'>Projet 1</button>
               <button type='button' className='button t-base-xsmall t-weight-500 bg-layette u-margin-r-1'>Projet 2</button>
               <button type='button' className='button t-base-xsmall t-weight-500 bg-layette u-margin-r-1'>Projet 3</button>
               <button type='button' className='button t-base-xsmall t-weight-500 bg-layette u-margin-r-1'>Projet 4</button>
-              <button type='button' className='button t-base-xsmall t-weight-500 bg-layette'>Projet 5</button>
+              <button type='button' className='button t-base-xsmall t-weight-500 bg-layette u-margin-r-3'>Projet 5</button>
             </div>
           </div>
 
@@ -49,11 +50,11 @@ function AddTimesheet() {
         </div>
 
         <div className={styles.form_section}>
-          <div className={`u-margin-b-1 u-flex u-align-items-center`}>
+          <div className={`u-margin-b-1 u-flex u-align-items-center ${styles.form_slider_container}`}>
             <label htmlFor="time">Temps passé</label>
             <div className={`${styles.form_slider}`}>
               <button type='button' className='button t-base-xsmall t-weight-500 bg-layette u-margin-r-1'>Temps restant</button>
-              <button type='button' className='button t-base-xsmall t-weight-500 bg-layette u-margin-r-1'>Convertir mon temps</button>
+              <button type='button' className='button t-base-xsmall t-weight-500 bg-layette u-margin-r-3'>Convertir mon temps</button>
             </div>
           </div>
 
@@ -63,7 +64,8 @@ function AddTimesheet() {
         </div>
         
       </section>
-    </div>
+      <ToolNav />
+    </main>
   )
 }
 

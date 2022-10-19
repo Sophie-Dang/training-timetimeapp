@@ -11,7 +11,6 @@ function ToolNav({
   setType, // Reducer props
   currentTemplate, // Reducer props
   templates, // Reducer props
-  setTemplate, // Reducer props
   cardOpened, // Reducer props
   isAnimated, // Reducer props
 }) {

@@ -80,7 +80,7 @@ $icon-size-default: rem(50);
   border-top-right-radius: rem(50);
   background-color: get-color('gray-70');
   transition: all 0.5s ease-in-out;
-  animation: slide-up-basic 1.2s ease-out;
+  animation: slide-up-basic 0.6s ease-out;
 
   .toolnav-buttons {
     text-align: end;

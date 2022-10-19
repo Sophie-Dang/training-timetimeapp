@@ -6,14 +6,16 @@
   left: - rem(22);
   width: 100vw;
   height: calc(100% + rem(130));
+  max-height: 0;
   padding: rem(42) rem(22);
   border-radius: 50px 50px 0px 0px;
   background: get-color('white');
   box-shadow: 0px 4px 250px rgba(0, 0, 0, 0.15);
   transform: translateY(100vh);
-  animation: slideDown 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 
   &_open {
+    max-height: 100vh;
     transform: translateY(0);
     animation: slideUp 0.4s ease-in-out;
   }
@@ -21,6 +23,11 @@
 
 @keyframes slideUp {
   0% {
+    max-height: 0;
+    transform: translateY(100vh);
+  }
+  1% {
+    max-height: 100vh;
     transform: translateY(100vh);
   }
   100% {
@@ -30,9 +37,14 @@
 
 @keyframes slideDown {
   0% {
+    max-height: 100vh;
     transform: translateY(0);
   }
+  99% {
+    transform: translateY(100vh);
+  }
   100% {
+    max-height: 0;
     transform: translateY(100vh);
   }
 }

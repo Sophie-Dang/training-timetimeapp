@@ -16,7 +16,7 @@ function Card({
   const card = cards.length > 0 ? cards.find(card => id === card.id) : defaultCardObj;
   const currentCard = undefined !== card ? card : defaultCardObj;
   const classes = {
-    isOpen: currentCard.isOpen === true ? styles.card_open : ''
+    isOpen: currentCard.isOpen === true ? styles.card_open : '',
   };
 
   useEffect(() => {
@@ -24,7 +24,6 @@ function Card({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
-
   return (
     <section id={id} className={`${styles.card} ${classes.isOpen}`}>
       {children}

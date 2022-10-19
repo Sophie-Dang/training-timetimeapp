@@ -284,6 +284,7 @@ $button-height: rem(50);
   &--rounded {
     height: rem(50);
     width: rem(50);
+    padding: rem(12);
     border-radius: 50%;
     background-color: get-color('gray-60');
 

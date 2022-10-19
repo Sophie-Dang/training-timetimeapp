@@ -9,7 +9,7 @@
 
   & > *:first-child,
   & > *:nth-child(2) {
-    animation: fade 3s ease;
+    animation: fade 0.6s ease;
   }
 
   label {
@@ -29,7 +29,7 @@
   border-top-left-radius: rem(50);
   border-top-right-radius: rem(50);
   margin-left: - rem(22);
-  animation: slide-up-basic 0.6s ease-out;
+  animation: slide-up-basic 0.4s ease-out;
 
   &_section {
     margin-bottom: rem(35);

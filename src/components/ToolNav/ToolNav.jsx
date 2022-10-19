@@ -1,7 +1,7 @@
 import './toolNav.scss';
 import React from 'react';
 import ProgressBar from '../ProgressBar/ProgressBar';
-import { IconAdd, IconTrash, IconValidate } from '../utils/Icons';
+import { IconAdd, IconEvent, IconTrash, IconValidate } from '../utils/Icons';
 import  { useNavigate } from 'react-router-dom'
 
 function ToolNav({
@@ -48,9 +48,7 @@ function ToolNav({
       setType({type: types.animate});
       setTimeout(() => {
         navigate("/add");
-        setType({type: types.form});
-        setTemplate({template: templates.form});
-      }, 1600);
+      }, 790);
     }
   }
 
@@ -58,9 +56,7 @@ function ToolNav({
     setType({type: types.animate});
     setTimeout(() => {
       navigate("/");
-      setType({type: types.simple});
-      setTemplate({template: templates.default});
-    }, 1600);
+    }, 790);
   }
 
   return (
@@ -73,7 +69,9 @@ function ToolNav({
                 <button className="button icon-button--rounded c-pale-red">
                   <IconTrash />
                 </button>
-                <button type='button' className="button icon-button--rounded" data-card-id={'formEvent'} onClick={handleClick}><img src="./images/event.svg" alt="Voir les évènments" /></button>
+                <button type='button' className="button icon-button--rounded c-gray-30" data-card-id={'formEvent'} onClick={handleClick}>
+                  <IconEvent />
+                </button>
                 <button type='button' className={`button icon-button--lg-rounded u-margin-r-0 ${classes.button}`} data-card-id={cardOpened} onClick={handleCloseForm}>
                   <IconValidate />
                 </button>
@@ -84,7 +82,9 @@ function ToolNav({
             :
               <>
               <div className={`toolnav-buttons ${classes.buttonsCentered}`}>
-                <button type='button' className="button func-button" data-card-id={'formEvent'} onClick={handleClick}><img src="./images/event.svg" alt="Voir les évènments" /></button>
+                <button type='button' className="button icon-button--rounded c-gray-30" data-card-id={'formEvent'} onClick={handleClick}>
+                  <IconEvent />
+                </button>
                 <button type='button' className={`button func-button u-margin-r-0 icon-button--lg-rounded ${classes.button}`} data-card-id={cardOpened} onClick={handleOpenForm}>
                   <IconAdd />
                 </button>

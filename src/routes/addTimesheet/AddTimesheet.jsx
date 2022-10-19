@@ -5,11 +5,19 @@ import Select from '../../containers/Select';
 import ToolNav from '../../containers/ToolNav';
 import styles from './AddTimesheet.module.scss';
 
-function AddTimesheet() {  
+function AddTimesheet({
+  types,
+  setType,
+  templates,
+  setTemplate,
+}) {  
   const projectOptions = [
     {value: 'week', label: 'Sélectionner un projet'},
     {value: 'today', label: 'Projet 2'},
   ]
+
+  setType({type: types.form});
+  setTemplate({template: templates.form});
 
   const handleProject = (e) => {
     console.log(e.currentTarget);

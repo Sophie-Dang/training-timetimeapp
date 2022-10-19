@@ -11,7 +11,12 @@ import Select from "../../containers/Select";
 import TimesheetFormEvent from "../../containers/TimesheetFormEvent";
 import ToolNav from "../../containers/ToolNav";
 
-function Home() {
+function Home({
+  types,
+  setType,
+  templates,
+  setTemplate,
+}) {
   const dateFilterOptions = [
     {value: 'week', label: 'Cette semaine'},
     {value: 'today', label: 'Aujourd\'hui'},
@@ -19,6 +24,9 @@ function Home() {
     {value: 'month-3', label: 'Ces 3 derniers mois'},
     {value: 'year', label: 'Cette année'},
   ]
+
+  setType({type: types.simple});
+  setTemplate({template: templates.default});
 
   const handleSelect = (evt) => {
     // console.log(evt.currentTarget.value);

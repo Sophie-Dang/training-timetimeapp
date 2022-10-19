@@ -21,6 +21,10 @@ html {
   @include down('xs') {
     font-size: 80%;
   }
+
+  @media (max-height: 800px) {
+    font-size: 80%;
+  }
 }
 
 *,

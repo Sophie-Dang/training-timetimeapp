@@ -5,3 +5,33 @@
 body {
   color: $font-default-color;
 }
+
+.page-transition {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  height: 100vh;
+  width: 100vw;
+  border-radius: 0;
+  background-color: get-color('gray-70');
+  transform: translateY(0);
+  animation: pageTransition 0.8s ease-in-out;
+}
+
+@keyframes pageTransition {
+  0% {
+    height: 100vh;
+    border-radius: rem(50);
+    transform: translateY(100vh);
+  }
+  80% {
+    height: 100vh;
+    transform: translateY(0);
+    border-radius: rem(50);
+  }
+  100% {
+    border-radius: 0;
+  }
+}
